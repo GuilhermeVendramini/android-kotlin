@@ -16,6 +16,10 @@ class MainActivity : AppCompatActivity() {
     fun kotlinTutorial() {
         Log.i("Info", "Hello World!")
 
+        /**
+         * Variables
+         **/
+
         var name: String
         name = "Guilherme Vendramini";
         println(name)
@@ -28,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         println("My phone is " + phone)
         println(phone.toString() + " is my phone")
 
-        var year: Int = 2019
+        var year: Int
+        year = 2019
+        println("Year: " + year)
         year = 2018
         println("Year: " + year)
 
@@ -36,6 +42,49 @@ class MainActivity : AppCompatActivity() {
         val age: Int = 33
         // age = 35
         println("Age: " + age)
+
+        // println("How old are you?")
+        // val yourAge = readLine()!!.toInt()
+        // println("Age is $yourAge")
+
+        /**
+         * Conditions
+         **/
+
+        var lives = 2
+        var isGameOver = (lives < 1)
+
+        println(isGameOver)
+
+        if (lives < 1) {
+            println("Game over!")
+        } else if (lives == 2) {
+            println("You have 2 lives")
+        } else {
+            println("You have $lives lives")
+        }
+
+        lives = 0
+        var message: String
+        message = if (lives < 1) {
+            "Game over!"
+        } else if (lives == 2) {
+            "You have 2 lives"
+        } else {
+            "You have $lives lives"
+        }
+
+        println(message)
+
+        lives = 3
+        message = when {
+            lives < 1 -> "Game over!"
+            lives == 2 -> "You have 2 lives"
+            else -> "You have $lives lives"
+        }
+
+        println(message)
+
 
     }
 }
