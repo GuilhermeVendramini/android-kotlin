@@ -102,5 +102,32 @@ class MainActivity : AppCompatActivity() {
 
         val player3 = Player("Celina", 6)
         player3.show()
+
+        println("Player 3 - Weapon name: " + player3.weapon.name)
+        println("Player 3 - Weapon damage: " + player3.weapon.damage)
+
+        val axe = Weapon("Axe", 12)
+        player2.weapon = axe
+        println("Player 2 - Weapon name: " + player2.weapon.name)
+        println("Weapon name: " + axe.name)
+
+        player.weapon = Weapon("Gun", 50)
+        println("Player 1 - Weapon name: " + player.weapon.name)
+
+        /**
+         * Lists
+         **/
+
+        val redPortion = Loot("Red Portion", LootType.POTION, 7.50)
+        player.inventory.add(redPortion)
+
+
+        /**
+         * "Override func
+         **/
+        player.showInventory() // See Loot.kt toString() override func
+        println("Override toString fun: " + player.toString())
+        println(player.weapon) // See Weapon.kt toString() override func
     }
+
 }
