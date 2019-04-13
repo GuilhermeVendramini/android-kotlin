@@ -85,6 +85,22 @@ class MainActivity : AppCompatActivity() {
 
         println(message)
 
+        /**
+         * Class
+         **/
 
+        val player = Player("Gui")
+        println("Player name: " + player.name)
+        println("Player lives: " + player.lives)
+        println("Player level: " + player.level)
+        println("Player score: " + player.score)
+        player.show()
+
+        val player2 = Player("Carol")
+        player2.level = 10
+        player2.show()
+
+        val player3 = Player("Celina", 6)
+        player3.show()
     }
 }
