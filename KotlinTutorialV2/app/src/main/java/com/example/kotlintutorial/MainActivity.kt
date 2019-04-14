@@ -119,10 +119,16 @@ class MainActivity : AppCompatActivity() {
          **/
 
         val redPortion = Loot("Red Portion", LootType.POTION, 7.50)
-        player.inventory.add(redPortion)
+        player.addLoot(redPortion)
         val chestArmor = Loot("Chest Armor", LootType.ARMOR, 80.0)
-        player.inventory.add(chestArmor)
-        player.inventory.add(Loot("Ring of Protection", LootType.RING, 40.0))
+        player.addLoot(chestArmor)
+        player.addLoot(Loot("Ring of Protection", LootType.RING, 40.0))
+        player.addLoot(Loot("Ring of Protection 2", LootType.RING, 60.0))
+
+        if (player.dropLoot(redPortion)) {
+            println("Red Portion was removed!")
+            player.showInventory()
+        }
 
 
         /**

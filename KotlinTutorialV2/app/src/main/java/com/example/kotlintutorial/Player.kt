@@ -4,7 +4,7 @@ class Player(val name: String, var level: Int = 1) {
     var lives = 3
     var score = 0
     var weapon: Weapon = Weapon("Knife", 1)
-    val inventory = ArrayList<Loot>()
+    private val inventory = ArrayList<Loot>()
 
     fun show() {
         if(lives > 1){
@@ -23,6 +23,19 @@ class Player(val name: String, var level: Int = 1) {
             Weapon: ${weapon.name}
             Damage: ${weapon.damage}
         """
+    }
+
+    fun addLoot(item: Loot){
+        inventory.add(item)
+    }
+
+    fun dropLoot(item: Loot) : Boolean {
+        return if (inventory.contains(item)) {
+            inventory.remove(item)
+            true
+        } else {
+            false
+        }
     }
 
     fun showInventory(){
