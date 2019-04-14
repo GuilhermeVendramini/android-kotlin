@@ -1,24 +1,28 @@
 package com.example.kotlintutorial
 
+import android.os.Build
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.annotation.RequiresApi
 import android.util.Log
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.N)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         kotlinTutorial()
     }
 
+    @RequiresApi(Build.VERSION_CODES.N)
     fun kotlinTutorial() {
         Log.i("Info", "Hello World!")
 
         /**
          * Variables
-         **/
+         */
 
         var name: String
         name = "Guilherme Vendramini";
@@ -49,7 +53,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * Conditions
-         **/
+         */
 
         var lives = 2
         var isGameOver = (lives < 1)
@@ -87,7 +91,7 @@ class MainActivity : AppCompatActivity() {
 
         /**
          * Class
-         **/
+         */
 
         val player = Player("Gui")
         println("Player name: " + player.name)
@@ -115,8 +119,36 @@ class MainActivity : AppCompatActivity() {
         println("Player 1 - Weapon name: " + player.weapon.name)
 
         /**
+         * Inheritance
+         */
+
+        val enemy = Enemy("Grux", 10, 3)
+        println(enemy);
+
+        enemy.takeDamage(4)
+        println(enemy)
+
+        val uglyTroll = Troll("Ugly troll", 20, 1)
+        println(uglyTroll)
+
+        uglyTroll.takeDamage(21)
+        println(uglyTroll)
+
+        val vampire = Vampire("Vults")
+        println(vampire)
+
+        vampire.takeDamage(10)
+        println(vampire)
+
+        val vampireKing = VampireKing("Dracula")
+        println(vampireKing)
+
+        vampireKing.takeDamage(8)
+        println(vampireKing)
+
+        /**
          * Lists
-         **/
+         */
 
         val redPortion = Loot("Red Portion", LootType.POTION, 7.50)
         player.addLoot(redPortion)
@@ -130,6 +162,7 @@ class MainActivity : AppCompatActivity() {
             player.showInventory()
         }
 
+        player.dropByName("Red Portion")
 
         /**
          * Override func

@@ -1,5 +1,8 @@
 package com.example.kotlintutorial
 
+import android.os.Build
+import android.support.annotation.RequiresApi
+
 class Player(val name: String, var level: Int = 1) {
     var lives = 3
     var score = 0
@@ -36,6 +39,12 @@ class Player(val name: String, var level: Int = 1) {
         } else {
             false
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.N)
+    fun dropByName(name: String) : Boolean {
+        println("$name will be dropped.")
+        return inventory.removeIf {it.name == name}
     }
 
     fun showInventory(){
