@@ -174,6 +174,9 @@ class MainActivity : AppCompatActivity() {
         /**
          * Loop
          */
+
+        // For
+
         player.showInventory() // See loop in Loot.kt showInventory() fun
 
         for (i in 1..10) {
@@ -197,6 +200,27 @@ class MainActivity : AppCompatActivity() {
                 println(value)
             }
         }
+
+        val hero = Player("Conan")
+        hero.addLoot(Loot("Invisibility", LootType.ARMOR, 4.0))
+        hero.addLoot(Loot("Ring of speed", LootType.RING, 1.0))
+        hero.addLoot(Loot("Chest Armor", LootType.ARMOR, 80.0))
+        hero.showInventory()
+
+        // While
+
+        while (vampireKing.lives > 0) {
+            if(vampireKing.dodges()) {
+                continue
+            }
+            vampireKing.takeDamage(50)
+        }
+
+        // do While
+        vampireKing.lives = 0
+        do {
+            println("${vampireKing.name} has ${vampireKing.lives} lives.")
+        } while (vampireKing.lives > 0)
     }
 
 }

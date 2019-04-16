@@ -48,12 +48,14 @@ class Player(val name: String, var level: Int = 1) {
     }
 
     fun showInventory(){
+        var total = 0.0
         println("$name's Inventory")
         // println(inventory.get(0)) // See Loot.kt toString() override fun
         for (item in inventory) {
             println(item)
+            total += item.value
         }
-
+        println("Total score is: $total")
     }
 
 }
